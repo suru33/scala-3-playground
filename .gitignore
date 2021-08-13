@@ -1,2 +1,9 @@
 *.class
 *.log
+
+target/
+.bsp/
+.idea/
+.vscode/
+
+.DS_Store
