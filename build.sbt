@@ -2,6 +2,18 @@ ThisBuild / version := "1.0.0"
 ThisBuild / organization := "https://github.com/suru33/"
 ThisBuild / scalaVersion := "3.0.0"
 
+ThisBuild / scalacOptions ++= Seq(
+  "-encoding",
+  "utf8",
+  "-new-syntax",
+  "-language:implicitConversions",
+  "-language:higherKinds",
+  "-language:existentials",
+  "-language:postfixOps"
+)
+
+ThisBuild / javacOptions ++= Seq("-source", "16")
+
 val commonDependencies = Seq(
   "org.typelevel" %% "cats-core" % "2.6.1",
   "org.scalatest" %% "scalatest" % "3.2.9" % Test,
