@@ -1,6 +1,6 @@
 ThisBuild / version := "1.0.0"
 ThisBuild / organization := "https://github.com/suru33/"
-ThisBuild / scalaVersion := "3.0.0"
+ThisBuild / scalaVersion := "3.1.1"
 
 ThisBuild / scalacOptions ++= Seq(
   "-encoding",
@@ -12,12 +12,12 @@ ThisBuild / scalacOptions ++= Seq(
   "-language:postfixOps"
 )
 
-ThisBuild / javacOptions ++= Seq("-source", "16")
+ThisBuild / javacOptions ++= Seq("-source", "17")
 
 val commonDependencies = Seq(
-  "org.typelevel" %% "cats-core" % "2.6.1",
-  "org.scalatest" %% "scalatest" % "3.2.9" % Test,
-  "org.mockito" % "mockito-core" % "3.11.2" % Test
+  "org.typelevel" %% "cats-core" % "2.7.0",
+  "org.scalatest" %% "scalatest" % "3.2.11" % Test,
+  "org.mockito" % "mockito-core" % "4.3.1" % Test
 )
 
 lazy val root = project
