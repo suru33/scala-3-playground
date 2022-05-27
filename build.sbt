@@ -12,22 +12,33 @@ ThisBuild / scalacOptions ++= Seq(
   "-language:postfixOps"
 )
 
-ThisBuild / javacOptions ++= Seq("-source", "17")
+ThisBuild / javacOptions ++= Seq("-source", "11")
 
 val commonDependencies = Seq(
   "org.typelevel" %% "cats-core" % "2.7.0",
-  "org.scalatest" %% "scalatest" % "3.2.11" % Test,
-  "org.mockito" % "mockito-core" % "4.3.1" % Test
+  "org.scalatest" %% "scalatest" % "3.2.12" % Test,
+  "org.scalatestplus" %% "mockito-4-5" % "3.2.12.0" % Test
 )
+
+def prompt(state: State) = {
+  val rootProject = "Scala 3 Playground"
+  val id = state.currentProject.id
+  s"[${if (id == "root") rootProject else s"$rootProject/$id"}]> "
+}
 
 lazy val root = project
   .in(file("."))
   .settings(
-    name := "Scala 3 Playground"
+    name := "Scala 3 Playground",
+    shellPrompt := { prompt }
   )
   .aggregate(
     `ex-1`
   )
 
 lazy val `ex-1` = project
-  .settings(libraryDependencies ++= commonDependencies)
+  .settings(
+    name := "Example 1",
+    libraryDependencies ++= commonDependencies,
+    shellPrompt := { prompt }
+  )
